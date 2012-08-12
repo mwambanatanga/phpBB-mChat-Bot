@@ -1,0 +1,249 @@
+<!-- INCLUDE overall_header.html -->
+<!--**
+*
+* @package mChat Bot
+* @version $Id: acp_mchat_bot.php, v 1.01.0 25/08/2011 Pico Exp $
+* @copyright (c) 2011 Pico ( http://www.modsteam.tk )
+* @license http://opensource.org/licenses/gpl-license.php GNU Public License
+*
+*/-->
+
+<!-- IF S_MCHAT_BOT_CONFIG -->
+<h1>{L_MCHAT_BOT_TITLE}</h1>
+
+<!-- IF MCHAT_BOT_ERROR -->
+	<div class="errorbox"><h3>{L_WARNING}</h3>
+		<p>{MCHAT_BOT_ERROR}</p>
+	</div>
+<!-- ENDIF -->
+
+<form id="acp_mchat_bot" method="post" action="{U_ACTION}">
+	<fieldset>
+		<legend>{L_MCHAT_BOT}</legend>		
+		<dl>
+			<dt><label for="mchat_bot_enable">{L_MCHAT_BOT_ENABLE}:</label><br />
+			<span>{L_MCHAT_BOT_ENABLE_EXPLAIN}</span></dt>
+			<dd><label><input type="radio" class="radio" name="mchat_bot_enable" value="1"<!-- IF MCHAT_BOT_ENABLE --> id="mchat_bot_enable" checked="checked"<!-- ENDIF --> /> {L_YES}</label>
+			<label><input type="radio" class="radio" name="mchat_bot_enable" value="0"<!-- IF not MCHAT_BOT_ENABLE --> id="mchat_bot_enable" checked="checked"<!-- ENDIF --> /> {L_NO}</label></dd>
+		</dl>
+		<dl>
+			<dt><label for="mchat_bot_warning">{L_MCHAT_BOT_WARNING}:</label><br />
+			<span>{L_MCHAT_BOT_WARNING_EXPLAIN}</span></dt>
+			<dd><label><input type="radio" class="radio" name="mchat_bot_warning" value="1"<!-- IF MCHAT_BOT_WARNING --> id="mchat_bot_warning" checked="checked"<!-- ENDIF --> /> {L_YES}</label>
+			<label><input type="radio" class="radio" name="mchat_bot_warning" value="0"<!-- IF not MCHAT_BOT_WARNING --> id="mchat_bot_warning" checked="checked"<!-- ENDIF --> /> {L_NO}</label></dd>
+		</dl>
+		<dl>
+			<dt><label for="mchat_bot_warns">{L_MCHAT_BOT_WARNS}:</label><br />
+			<span>{L_MCHAT_BOT_WARNS_EXPLAIN}</span></dt>
+			<dd><input type="text" name="mchat_bot_warns" size="4" maxlength="4" value="{MCHAT_BOT_WARNS}" /></dd>
+		</dl>
+		<dl>
+			<dt><label for="mchat_bot_welcome">{L_MCHAT_BOT_WELCOME}:</label><br />
+			<span>{L_MCHAT_BOT_WELCOME_EXPLAIN}</span></dt>
+			<dd><label><input type="radio" class="radio" name="mchat_bot_welcome" value="1"<!-- IF MCHAT_BOT_WELCOME --> id="mchat_bot_welcome" checked="checked"<!-- ENDIF --> /> {L_YES}</label>
+			<label><input type="radio" class="radio" name="mchat_bot_welcome" value="0"<!-- IF not MCHAT_BOT_WELCOME --> id="mchat_bot_welcome" checked="checked"<!-- ENDIF --> /> {L_NO}</label></dd>
+		</dl>
+		<dl>
+			<dt><label for="cat_id">{L_MCHAT_BOT_WELCOME_CAT}:</label><br />
+			<span>{L_MCHAT_BOT_WELCOME_CAT_EXPLAIN}</span></dt>
+			<dd>{CAT_SELECT}</dd>
+		</dl>
+	</fieldset>
+	<p class="submit-buttons">
+		<input class="button1" type="submit" id="submit" name="submit" value="{L_SUBMIT}" />&nbsp;
+		<input class="button2" type="reset" id="reset" name="reset" value="{L_RESET}" />
+		{S_FORM_TOKEN}
+	</p>	
+</form>
+<fieldset>
+	<legend>{L_MCHAT_BOT_TITLE}</legend>		
+		<dl>
+			<dt><label>{L_MCHAT_BOT_NAME}:</label><br />
+			<span>{L_MCHAT_BOT_NAME_EXPLAIN}</span</dt>
+			<dd><span style="color:{MCHAT_BOT_COLOUR}; font-weight: bold;">{MCHAT_BOT}</span> <a href="{U_EDIT_BOT}">{ICON_EDIT}</a></dd>
+		</dl>		
+</fieldset>
+<!-- ENDIF -->
+
+<!-- IF S_EDIT_MCHAT_BOT -->
+<h1>{L_MCHAT_BOT_TITLE}</h1>
+
+<!-- IF MCHAT_BOT_ERROR -->
+	<div class="errorbox"><h3>{L_WARNING}</h3>
+		<p>{MCHAT_BOT_ERROR}</p>
+	</div>
+<!-- ENDIF -->
+
+<form id="acp_mchat_bot" method="post">
+	<fieldset>
+		<legend>{L_MCHAT_BOT}</legend>		
+		<dl>
+			<dt><label for="mchat_bot_name">{L_MCHAT_BOT_NAME}:</label></dt>
+			<dd><input type="text" name="mchat_bot_name" value="{MCHAT_BOT_NAME}" /></dd>
+		</dl>		
+		<dl>
+			<dt><label for="mchat_bot_colour">{L_MCHAT_BOT_COLOUR}:</label></dt>
+			<dd><input name="mchat_bot_colour" type="text" id="mchat_bot_colour" value="{MCHAT_BOT_COLOUR}" size="6" maxlength="6" /><!-- IF MCHAT_BOT_COLOUR -->&nbsp;<span style="background-color: #{MCHAT_BOT_COLOUR}">&nbsp; &nbsp;</span><!-- ENDIF -->&nbsp;&nbsp;<span>[ <a href="{U_SWATCH}" onclick="popup(this.href, 636, 150, '_swatch'); return false">{L_COLOUR_SWATCH}</a> ]</span></dd>
+		</dl>
+		<dl>
+			<dt><label>{L_MCHAT_BOT_AVATAR}:</label></dt>
+			<dd><a href="{U_AVATAR}">{ICON_EDIT}</a></dd>
+		</dl>
+	</fieldset>
+	<p class="submit-buttons">
+		<input class="button1" type="submit" id="submit" name="submit" value="{L_SUBMIT}" />&nbsp;
+		<input class="button2" type="reset" id="reset" name="reset" value="{L_RESET}" />
+		{S_FORM_TOKEN}
+	</p>	
+</form>
+<!-- ENDIF -->
+
+<!-- IF S_BOT_TEXT -->
+<h1>{L_MCHAT_BOT_TEXT_TITLE}</h1>
+<p>{L_MCHAT_BOT_TEXT_TITLE_EXPLAIN}</p>
+
+	<!-- IF S_BOT_TEXT_LIST -->
+		<form id="acp_mchat_bot" method="post">
+			<fieldset class="quick">
+				<input type="hidden" name="action" value="add" />
+				<input class="button2" name="quick_submit" type="submit" value="{L_ADD_TEXT}" />
+			</fieldset>
+		</form>
+
+		<table cellspacing="1" cellpadding="0">
+			<tr>
+				<th style="width: 45%;">{L_USER_TEXT}</th>
+				<th style="width: 45%;">{L_BOT_TEXT}</th>
+				<th>{L_ACTIONS}</th>
+			</tr>
+			<!-- BEGIN bot_text -->
+			<tr class="row<!-- IF bot_text.S_ROW_COUNT is even -->1<!-- ELSE -->2<!-- ENDIF -->">
+				<td>{bot_text.USER_TEXT}</td>
+				<td>{bot_text.BOT_TEXT}</td>
+				<td>
+					<a href="{bot_text.U_EDIT}">{ICON_EDIT}</a>
+					<a href="{bot_text.U_DELETE}">{ICON_DELETE}</a>
+					<!-- IF bot_text.S_FIRST_ROW && not bot_text.S_LAST_ROW -->
+					{ICON_MOVE_UP_DISABLED}
+					<a href="{bot_text.U_MOVE_DOWN}">{ICON_MOVE_DOWN}</a>
+					<!-- ELSEIF not bot_text.S_FIRST_ROW && not bot_text.S_LAST_ROW -->
+					<a href="{bot_text.U_MOVE_UP}">{ICON_MOVE_UP}</a>
+					<a href="{bot_text.U_MOVE_DOWN}">{ICON_MOVE_DOWN}</a>
+					<!-- ELSEIF bot_text.S_LAST_ROW && not bot_text.S_FIRST_ROW -->
+					<a href="{bot_text.U_MOVE_UP}">{ICON_MOVE_UP}</a>
+					{ICON_MOVE_DOWN_DISABLED}
+					<!-- ELSE -->
+					{ICON_MOVE_UP_DISABLED}
+					{ICON_MOVE_DOWN_DISABLED}
+					<!-- ENDIF -->
+				</td>
+			</tr>
+			<!-- BEGINELSE -->
+			<tr class="row1"><td colspan="4">{L_NO_BOT_TEXT}</td></tr>
+			<!-- END bot_text -->
+		</table>
+	<!-- ELSE -->
+		<form id="acp_mchat_bot" method="post" action="{U_TEXT_ACTION}">
+			<fieldset>
+				<dl>
+					<dt><label for="user_text">{L_USER_TEXT}:</label><br />
+					<span>{L_USER_TEXT_EXPLAIN}</span></dt>
+					<dd><textarea name="user_text" id="user_text" rows="3" cols="40">{USER_TEXT}</textarea></dd>
+				</dl>
+				<dl>
+					<dt><label for="bot_text">{L_BOT_TEXT}:</label><br />
+					<span>{L_BOT_TEXT_EXPLAIN}</span></dt>
+					<dd><textarea name="bot_text" id="bot_text" rows="3" cols="40">{BOT_TEXT}</textarea></dd>
+				</dl>
+				<dl>
+					<dt><label for="cat_id">{L_SELECT_CATEGORY}:</label><br />
+					<span>{L_SELECT_CATEGORY_EXPLAIN}</span></dt>
+					<dd>{CAT_SELECT}</dd>
+				</dl>
+			</fieldset>
+			<fieldset class="submit-buttons">
+				<legend>{L_SUBMIT}</legend>
+				<input class="button1" type="submit" id="submit" name="submit" value="{L_SUBMIT}" />
+			</fieldset>
+		</form>
+	<!-- ENDIF -->
+<!-- ENDIF -->
+
+<!-- IF S_RANDTXT -->
+<h1>{L_MCHAT_BOT_RANDTXT_TITLE}</h1>
+<p>{L_MCHAT_BOT_RANDTXT_TITLE_EXPLAIN}</p>
+
+	<!-- IF S_RANDTXT_LIST -->
+		<form id="acp_mchat_bot" method="post">
+			<fieldset class="quick">
+				<input type="hidden" name="action" value="add_cat" />
+				<input class="button2" name="quick_submit" type="submit" value="{L_ADD_CAT}" />
+			</fieldset>
+		</form>
+
+		<table cellspacing="1" cellpadding="0">
+			<tr>
+				<th style="width: 30%;">{L_CAT_DESC}</th>
+				<th>{L_BOT_TEXT}</th>
+			</tr>
+			<!-- BEGIN randtxt_cat -->
+			<tr class="row<!-- IF randtxt_cat.S_ROW_COUNT is even -->1<!-- ELSE -->2<!-- ENDIF -->">
+				<td>{randtxt_cat.CAT_DESC} ({randtxt_cat.NUM_CAT_TEXTS}) ( <a href="{randtxt_cat.U_CAT_EDIT}">{L_EDIT}</a> | <a href="{randtxt_cat.U_CAT_DELETE}">{L_DELETE}</a> )</td>
+				<td>
+					<table cellspacing="0" cellpadding="0" border="0">
+					<!-- BEGIN randtxt_word -->
+						<tr class="row<!-- IF randtxt_word.S_ROW_COUNT is even -->1<!-- ELSE -->2<!-- ENDIF -->">
+							<td>{randtxt_cat.randtxt_word.RAND_TEXT} ( <a href="{randtxt_cat.randtxt_word.U_RANDTXT_EDIT}">{L_EDIT}</a> | <a href="{randtxt_cat.randtxt_word.U_RANDTXT_DELETE}">{L_DELETE}</a> )</td>
+						</tr>
+					<!-- BEGINELSE -->
+						<tr class="row1"><td colspan="4">{L_NO_BOT_TEXT}</td></tr>
+					<!-- END randtxt_word -->
+						<tr>
+							<td><a href="{randtxt_cat.U_RANDTXT_ADD}">{L_ADD_RANDTXT}</a></td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<!-- BEGINELSE -->
+			<tr class="row1"><td colspan="4">{L_NO_CAT}</td></tr>
+			<!-- END bot_words -->
+		</table>
+	<!-- ENDIF -->
+	<!-- IF S_CATEGORY_EDIT -->
+		<form id="acp_mchat_bot" method="post" action="{U_CAT_ACTION}">
+			<fieldset>
+				<dl>
+					<dt><label for="cat_desc">{L_CAT_DESC}:</label><br />
+					<span>{L_CAT_DESC_EXPLAIN}</span></dt>
+					<dd><input type="text" name="cat_desc" size="30" maxlength="255" value="{CAT_DESC}" /></textarea></dd>
+				</dl>
+			</fieldset>
+			<fieldset class="submit-buttons">
+				<legend>{L_SUBMIT}</legend>
+				<input class="button1" type="submit" id="submit" name="submit" value="{L_SUBMIT}" />
+			</fieldset>
+		</form>
+	<!-- ENDIF -->
+	<!-- IF S_RANDTXT_EDIT -->
+		<form id="acp_mchat_bot" method="post" action="{U_RANDTXT_ACTION}">
+			<fieldset>
+				<dl>
+					<dt><label for="rand_text">{L_BOT_TEXT}:</label><br />
+					<span>{L_BOT_TEXT_EXPLAIN}</span></dt>
+					<dd><textarea name="rand_text" id="rand_text" rows="3" cols="40">{RAND_TEXT}</textarea></dd>
+				</dl>
+				<dl>
+					<dt><label for="cat_id">{L_SELECT_CATEGORY}:</label><br />
+					<span>{L_SELECT_CATEGORY_EXPLAIN}</span></dt>
+					<dd>{CAT_SELECT}</dd>
+				</dl>
+			</fieldset>
+			<fieldset class="submit-buttons">
+				<legend>{L_SUBMIT}</legend>
+				<input class="button1" type="submit" id="submit" name="submit" value="{L_SUBMIT}" />
+			</fieldset>
+		</form>
+	<!-- ENDIF -->
+<!-- ENDIF -->
+
+<!-- INCLUDE overall_footer.html -->
